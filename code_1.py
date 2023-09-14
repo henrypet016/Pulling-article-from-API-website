@@ -1,10 +1,15 @@
-import requests
-import json
-response_API = requests.get('https://api.elifesciences.org/articles/84711')
-#print(response_API.status_code)
-data = response_API.text
-parse_json = json.loads(data)
-info = parse_json['title']
-date = parse_json['published']
-print("This is the title of the article: ", info)
-print("And it was published on: ", date) 
+from pyodide.http import pyfetch
+import asyncio
+        
+async def fetch_data_and_write():
+        response = await pyfetch(url="https://api.elifesciences.org/articles/84711", method="GET")
+        json_response = await response.json()  # Parse the JSON response
+        title = json_response.get('title', 'Title not found')
+        output = f"GET request => status: {response.status}, title: {title}"
+        
+        pyscript.write('titleFinal',output)
+        
+        # To run the coroutine, you need to create an asyncio event loop
+        if __name__ == "__main__":
+            loop = asyncio.get_event_loop()
+            loop.run_until_complete(fetch_data_and_write())
