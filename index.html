@@ -6,9 +6,13 @@
 </head>
 
 <body>
-    <p>The title of this article is: 
+    <p>The title of this article is:
         <span id='titleFinal'></span>
     </p>
+
+    <py-config>
+        packages = ["beautifulsoup4"]
+    </py-config>
 
     <py-script>
         from pyodide.http import pyfetch
