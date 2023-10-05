@@ -19,13 +19,17 @@
 
     <h1>This is page 1</h1>
 
+    <p>The title of this (different) article is:
+        <span id='titleFinal'></span>
+    </p>
+
 
     <py-script>
         from pyodide.http import pyfetch
         import asyncio
 
         async def fetch_data_and_write():
-            response = await pyfetch(url="https://api.elifesciences.org/articles/84711", method="GET")
+            response = await pyfetch(url="https://api.elifesciences.org/articles/88828", method="GET")
             json_response = await response.json()
             title = json_response.get('title', 'Title not found')
             output = f"{title}"
