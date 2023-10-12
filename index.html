@@ -6,51 +6,29 @@
 </head>
 
 <body>
-    <nav class="navbar background">
-		<ul class="nav-list">
-			<div class="logo">
-				<a href="index.html">
-				<img src= "Elife.png">
-			</div>
-			<li><a href="page1.html">Page 1</a></li>
-            <li><a href="page2.html">Page 2</a></li>
-		</ul>
-	</nav>
 
     <p>The title of this article is:
         <span id='titleFinal'></span>
     </p>
 
-    <py-config>
-        packages = ["beautifulsoup4"]
-    </py-config>
-
     <py-script>
         from pyodide.http import pyfetch
         import asyncio
-        from bs4 import BeautifulSoup
-        from bs4 import NavigableString
 
         async def fetch_data_and_write():
             response = await pyfetch(url="https://api.elifesciences.org/articles/84711", method="GET")
             json_response = await response.json()
             title = json_response.get('title', 'Title not found')
-            soup = BeautifulSoup(title, 'html.parser')
-            italic_tags = soup.find_all('i')
-            for tag in italic_tags:
-                italic_text = tag.get_text()
-                italicized_text = NavigableString("<i> + italic_text + </i>")
-                tag.replace_with(italicized_text)
-
-
-            output = (soup.prettify())
+            output = f"{title}"
             Element("titleFinal").write(output)
 
         if __name__ == "__main__":
             loop = asyncio.get_event_loop()
             loop.run_until_complete(fetch_data_and_write())
 
-
     </py-script>
+
+
+
 
 </body>
