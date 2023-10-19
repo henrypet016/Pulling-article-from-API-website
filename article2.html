@@ -1,46 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Website</title>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
-    <nav class="navbar background">
-		<ul class="nav-list">
-			<div class="logo">
-				<a href="index.html">
-				<img src= "Henry.png">
-			</div>
-			<li><a href="articlepage.html">Articles</a></li>
-		</ul>
-	</nav>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Website</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
 
-    <p>The title of this article is:
-        <span id='titleFinal'></span>
-    </p>
+    <body>
+        <nav class="navbar background">
+            <ul class="nav-list">
+                <div class="logo">
+                    <a href="index.html">
+                    <img src= "Henry.png">
+                </div>
+                <li><a href="articlepage.html">Articles</a></li>
+            </ul>
+        </nav>
 
-    <py-script>
-        from pyodide.http import pyfetch
-        import asyncio
+        <p>The title of this article is:
+        Fluorescein-based sensors to purify human α-cells for functional and transcriptomic analyses
+        </p>
 
-        async def fetch_data_and_write():
-            response = await pyfetch(url="https://api.elifesciences.org/articles/85056", method="GET")
-            json_response = await response.json()
-            title = json_response.get('title', 'Title not found')
-            output = f"{title}"
-            Element("titleFinal").write(output)
+    </body>
 
-        if __name__ == "__main__":
-            loop = asyncio.get_event_loop()
-            loop.run_until_complete(fetch_data_and_write())
-    </py-script>
-
-
-
-
-</body>
-
-</html>
+    </html>

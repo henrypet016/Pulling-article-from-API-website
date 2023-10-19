@@ -3,17 +3,25 @@
     padding: 0;
   }
 
+  h2 {
+    padding: 15px;
+  }
+
+  a {
+    color: hotpink
+  }
+
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   position: sticky;
   top: 0;
   cursor: pointer;
   }
 
 .background {
-  background: black;
+  background: lightblue;
   background-blend-mode: darken;
   background-size: cover;
   }
@@ -32,6 +40,7 @@
 	.nav-list li a {
 		text-decoration: none;
 		color: white;
+    font-size: 25px;
 	}
 
 	.nav-list li a:hover {
@@ -48,3 +57,13 @@
 		width: 180px;
 		border-radius: 50px;
 	}
+
+.link-styles {
+  display: block;
+  padding: 15px;
+  color: darkcyan
+}
+
+p {
+  padding: 15px;
+}

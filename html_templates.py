@@ -1,4 +1,4 @@
-
+ARTICLE_HTML_TEMPLATE= '''
     <!DOCTYPE html>
     <html>
     <head>
@@ -18,9 +18,10 @@
         </nav>
 
         <p>The title of this article is:
-        lncRNA read-through regulates the BX-C insulator <i>Fub-1</i>
+        {article_title}
         </p>
 
     </body>
 
     </html>
+'''
